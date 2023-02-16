@@ -6,8 +6,6 @@ const db = require("../db/db.json")
 const {readFromFile, readAndAppend} = require("../utils/fsHelpers")
 // fs.readFileSync('${__dirname}\index.js');
 
-
-
 //MAKE a ROUTE that reads to db.json and returns all saved notes as json
 router.get('/notes', (req, res) =>
     res.json(db)
@@ -34,11 +32,9 @@ router.delete("/notes/:id", (req, res) => {
             JSON.stringify(notes)
             )
             console.log("clicked")
-        res.json(db)
+        readFromFile("../db/db.json")
     })
 })
-
-
 
 module.exports = router;
 //Unique id install notes for npm(for later)
