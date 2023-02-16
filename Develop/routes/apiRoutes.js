@@ -20,7 +20,7 @@ router.post('/notes', (req, res) => {
         id: db.length
     }
     readAndAppend(newNote, "./db/db.json")
-    res.json(db)
+    res.status(200).json(newNote)
 })
 
 router.delete("/notes/:id", (req, res) => {
@@ -37,5 +37,3 @@ router.delete("/notes/:id", (req, res) => {
 })
 
 module.exports = router;
-//Unique id install notes for npm(for later)
-// npm install uuidv4

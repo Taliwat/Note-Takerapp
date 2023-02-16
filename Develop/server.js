@@ -1,5 +1,5 @@
 const express = require('express');
-const apiRouter = require('./routes/apiRoutes')
+const apiRouter = require('./routes/apiRoutes').default
 const path = require('path')
 
 const PORT = process.env.PORT || 3001;
@@ -11,7 +11,7 @@ app.use(express.static('public'));
 
 app.use('/api', apiRouter);
 
-app.get('/notes', (req, res) =>
+app.get('/api/notes', (req, res) =>
   res.sendFile(path.join(__dirname, '/public/notes.html'))
 );
 
